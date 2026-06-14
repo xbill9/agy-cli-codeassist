@@ -7,17 +7,17 @@ all: install test lint type-check
 # Target to install dependencies
 install:
 	@echo "Installing dependencies..."
-	@pip install -r requirements.txt
-	@pip install -r requirements-dev.txt
+	@python3 -m pip install --break-system-packages -r requirements.txt
+	@python3 -m pip install --break-system-packages -r requirements-dev.txt
 
 release:
 	@echo "Installing dependencies..."
-	@pip install -r requirements.txt
+	@python3 -m pip install --break-system-packages -r requirements.txt
 
 # Target to run the application
 run:
 	@echo "Running the application..."
-	@python main.py
+	@python3 main.py
 
 # Target to build the application (placeholder for future use)
 build:
@@ -27,7 +27,7 @@ build:
 # Target to run tests
 test:
 	@echo "Running tests..."
-	@python -m pytest test_logging.py test_greet.py
+	@python3 -m pytest test_logging.py test_greet.py
 
 # Target to lint the code
 lint:
@@ -65,4 +65,4 @@ clean:
 	@find . -type f -name "*.pyc" -delete
 	@find . -type d -name "__pycache__" -exec rm -rf {} +
 	@find . -type d -name ".pyte*" -exec rm -rf {} +
-	@rm -rf .venv
+

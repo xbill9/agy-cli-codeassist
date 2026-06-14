@@ -19,17 +19,11 @@ This project provides a basic MCP server named `hello-world-server` that exposes
     cd mcp-stdio-python
     ```
 
-2.  **Set up a virtual environment (recommended):**
-    ```bash
-    python3 -m venv .venv
-    source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
-    ```
-
-3.  **Install dependencies:**
+2.  **Install dependencies:**
     ```bash
     make install
     # Or manually:
-    pip install -r requirements.txt
+    python3 -m pip install --break-system-packages -r requirements.txt
     ```
 
 ## Usage
@@ -38,7 +32,7 @@ This server is designed to be executed by an MCP client (like Claude Desktop or 
 
 To run the server manually (starts listening on stdio):
 ```bash
-python main.py
+python3 main.py
 ```
 
 ### Configuration for MCP Clients
@@ -49,7 +43,7 @@ If you are adding this to an MCP client config (e.g., `claude_desktop_config.jso
 {
   "mcpServers": {
     "python-hello-world": {
-      "command": "python",
+      "command": "python3",
       "args": ["/path/to/mcp-stdio-python/main.py"]
     }
   }

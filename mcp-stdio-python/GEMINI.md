@@ -2,6 +2,8 @@
 
 This document provides context for the Gemini Code Assistant to understand the project and assist in development.
 
+Do NOT USE VENV
+
 ## Project Overview
 
 This is a **Python-based Model Context Protocol (MCP) server** using the `FastMCP` class from the `mcp` SDK. It is designed to expose tools (like `greet`) over standard input/output (stdio) for integration with MCP clients (such as Claude Desktop or Gemini clients).
@@ -22,15 +24,13 @@ This is a **Python-based Model Context Protocol (MCP) server** using the `FastMC
 
 ## Development Setup
 
-1.  **Create and activate a virtual environment (optional but recommended):**
+1.  **Install Dependencies:**
     ```bash
-    python3 -m venv .venv
-    source .venv/bin/activate
+    python3 -m pip install --break-system-packages -r requirements.txt
     ```
-
-2.  **Install Dependencies:**
+    Or use:
     ```bash
-    pip install -r requirements.txt
+    make install
     ```
 
 ## Running the Server
@@ -38,7 +38,7 @@ This is a **Python-based Model Context Protocol (MCP) server** using the `FastMC
 The server is configured to run using the `stdio` transport.
 
 ```bash
-python main.py
+python3 main.py
 ```
 
 *Note: Since this is an MCP server running over stdio, it is typically not run directly by a human but rather spawned by an MCP client.*
